@@ -4,6 +4,11 @@ const newDeposit = inputs.value
 const newDepositNumber = parseFloat(newDeposit)
 inputs.value=''
 
+if(isNaN(newDepositNumber)){
+    alert('provide a valid number')
+    return
+}
+
 const deposit = document.getElementById('deposited')
 const previousDeposit = deposit.innerText
 const previousDepositNumber = parseFloat(previousDeposit)
@@ -28,6 +33,11 @@ document.getElementById('withdraw-btn').addEventListener('click',function(){
     const newWithdrawAmount = parseFloat(withdrawValue)
     withdrawInput.value = ''
 
+    if(isNaN(newWithdrawAmount)){
+        alert('provide a valid number' )
+        return
+    }
+
     const withdrawA = document.getElementById('withdraw-adding')
     const withdrawText = withdrawA.innerText
     const previousWithdrawTextNumber = parseFloat(withdrawText)
@@ -39,6 +49,11 @@ const balanceText = balance.innerText
 const balanceTextNumber = parseFloat(balanceText)
 
 const balanceTotal = balanceTextNumber-newWithdrawAmount
+
+if(newWithdrawAmount>balanceTextNumber){
+    alert('eto taka nai bhai')
+return
+}
 
 balance.innerText = balanceTotal
 
